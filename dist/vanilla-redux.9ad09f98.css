@@ -1,0 +1,13 @@
+.toggle {
+    border: 2px solid black;
+    width: 64px;
+    border: 64px;
+    border-radius: 32px;
+    box-sizing: border-box; /* box-sizing: 박스의 크기를 어떤 것을 기준으로 계산할지를 정하는 속성(default: content-box) */
+}
+
+.toggle .active {
+    background: yellow;
+}
+
+/*# sourceMappingURL=/vanilla-redux.9ad09f98.css.map */
