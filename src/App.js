@@ -1,29 +1,29 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
 function App() {
   const [string, setString] = useState("");
   const [stringList, setStringList] = useState([]);
 
-  const change = (e) => {
+  const change = useCallback((e) => {
     setString(e.target.value);
-  };
+  }, []);
 
-  const insert = () => {
+  const insert = useCallback(() => {
     const newList = stringList.slice();
     newList.push(string);
     setStringList(newList);
-  };
+  }, [string, stringList]);
 
-  const sum = (list) => {
+  const sum = useCallback((list) => {
     console.log("문자열 합치는 중!");
     let stringSum = "";
     for (let value of list) {
       stringSum += value + " ";
     }
     return stringSum;
-  };
+  }, []);
 
-  const result = useMemo(() => sum(stringList), [stringList]);
+  const result = useMemo(() => sum(stringList), [stringList, sum]);
 
   return (
     <div>
