@@ -1,21 +1,20 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext } from "react";
 
-const TestContext1 = createContext();
-const Testcontext2 = createContext();
+import CareerWrapper from "./CareerWrapper";
 
-const UseContextExample = () => {
-  const name = useContext(TestContext1);
-  const age = useContext(Testcontext2);
-  return <div>{name + " " + age}</div>;
-};
+// Context 생성
+export const UserContext = createContext();
 
 function App() {
+  const user = {
+    name: "Hwang Hyun",
+    age: 27,
+  };
+
   return (
-    <TestContext1.Provider value="Hwang Hyun">
-      <Testcontext2.Provider value="27">
-        <UseContextExample />
-      </Testcontext2.Provider>
-    </TestContext1.Provider>
+    <UserContext.Provider value={user}>
+      <CareerWrapper />
+    </UserContext.Provider>
   );
 }
 
