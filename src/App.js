@@ -3,10 +3,9 @@ import React, { useEffect, useState } from "react";
 function App() {
   const [text, setText] = useState("init value1");
 
-  // useEffect : 해당 컴포넌트가 실행 될 때마다 useEffect 함수가 실행됩니다.
   useEffect(() => {
-    console.log("state111111가 변경될 때 마다 호출!!");
-  });
+    console.log("state가 변경될 때만 호출!!");
+  }, [text]); // useEffect의 두번째 매개변수를 통해 해당 state만 감지하여 useEffect를 실행합니다.
 
   const changeInput = (e) => {
     setText(e.target.value);
