@@ -217,8 +217,8 @@ Greetings.defaultProps = {
 export default Greetings;
 ```
 
-<br / >
-<br / >
+<br />
+<br />
 
 ### 컴포넌트에 생략가능한 props 설정하기
 
