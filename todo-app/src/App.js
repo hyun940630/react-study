@@ -1,7 +1,8 @@
-import React, { useReducer, useRef, useCallback } from 'react';
-import TodoTemplate from './components/TodoTemplate';
+import React, { useCallback, useReducer, useRef } from 'react';
+
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
+import TodoTemplate from './components/TodoTemplate';
 
 // bulk data input
 function createBulkTodos() {
@@ -35,6 +36,8 @@ function todoReducer(todos, action) {
 }
 
 const App = () => {
+  // default state로 createBulkTodos()를 넣게 되면 리렌더될 때마다 해당 데이터가 렌더링됩니다.
+  // 하지만 createBulkTodos와 같이 넣어주게 되면 컴포넌트가 처음 렌더링될 때 한번만 렌더링됩니다.
   const [todos, dispatch] = useReducer(todoReducer, undefined, createBulkTodos);
 
   // 고유값으로 사용될 id
