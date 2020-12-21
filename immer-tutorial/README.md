@@ -9,3 +9,64 @@ $ npx create-react-app immer-tutorial
 $ cd immer-tutorial
 $ yarn add immer
 ```
+
+## immer 사용하기
+
+```
+$ yarn add immer
+```
+
+### immer 기본 사용법
+
+```js
+import produce from 'immer';
+
+const nextState = produce(originalState, (draft) => {
+    // 바꾸고 싶은 값 바꾸기
+    draft.somewhere.deep.inside = 5;
+});
+```
+
+### useState의 함수형 업데이트와 immer 함께 쓰기
+
+#### 함수형 업데이트 예시
+
+```js
+const [number, setNumber] = useState(0);
+
+// prevNumbers는 현재 number 값을 가리킵니다.
+const onIncrease = useCallback(
+    () => setNumber((prevNumber) => prevNumber + 1),
+    []
+);
+```
+
+#### `immer` produce 함수의 첫 번째 파라미터에 함수 형태를 전달하면 업데이트 함수를 반환
+
+```js
+const update = (draft) => {
+    draft.value = 2;
+};
+
+const originalState = {
+    value: 1,
+    foo: 'bar',
+};
+
+const nextState = update(originalState);
+console.log(nextState);
+```
+
+#### useState + immer
+
+```js
+...
+
+setData(
+    produce(draft => {
+        draft.array.push(info)
+    })
+);
+
+...
+```
