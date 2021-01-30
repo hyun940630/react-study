@@ -19,12 +19,12 @@ const Profile = ({ match }) => {
         return <div>존재하지 않는 사용자입니다!</div>
     }
 
-    return {
+    return (
         <div>
             <h3>{username}({profile.name})</h3>
             <p>{profile.description}</p>
         </div>
-    }
+    )
 }
 
 export default Profile;
