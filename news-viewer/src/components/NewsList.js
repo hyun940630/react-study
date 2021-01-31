@@ -23,14 +23,14 @@ const sampleAricle = {
 
 const NewsList = () => {
     return (
-        <NewsList>
+        <NewsListBlock>
             <NewsItem article={sampleAricle} />
             <NewsItem article={sampleAricle} />
             <NewsItem article={sampleAricle} />
             <NewsItem article={sampleAricle} />
             <NewsItem article={sampleAricle} />
             <NewsItem article={sampleAricle} />
-        </NewsList>
+        </NewsListBlock>
     )
 }
 
