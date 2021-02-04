@@ -1,7 +1,9 @@
-function App() {
+import ColorBox from './components/ColorBox';
+
+const App = () => {
   return (
     <div>
-      Hello, context!
+      <ColorBox />
     </div>
   );
 }
