@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import ColorContext from '../contexts/color';
 
 const ColorBox = () => {
-    const { state } = useContext(ColorContext)
+    const { state } = useContext(ColorContext);
     return (
         <>
             <div 
@@ -20,7 +20,7 @@ const ColorBox = () => {
                 }}
             />
         </>
-    )
+    );
 }
 
 export default ColorBox;

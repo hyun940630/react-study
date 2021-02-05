@@ -184,3 +184,41 @@ export default SelectColors;
 
 ColorCusumer의 `action` 객체를 내려받고 그 안에 사용할 수 있습니다.(`action.setColor()`, `action.setSubcolor()`)
 `onContextMeun` Property는 마우스 오른쪽 클릭 이벤트를 받습니다. 그리고 `e.preventDefault()`를 통해서 마우스 오른쪽 버튼 클릭 시 메뉴가 뜨는 것을 막을 수 있습니다.
+
+<br />
+<br />
+
+## useContext Hook 사용하기
+
+`Function Component`를 사용하면 **`hook`**를 사용할 수 있습니다. 그 중 `useContext`라는 사용해봅시다.
+
+```jsx
+import { useContext } from 'react';
+import ColorContext from '../contexts/color';
+
+const ColorBox = () => {
+    const { state } = useContext(ColorContext);
+    return (
+        <>
+            <div 
+                style={{
+                    width: '64px',
+                    height: '64px',
+                    background: state.color
+                }}
+            />
+            <div 
+                style={{
+                    width: '32px',
+                    height: '32px',
+                    background: state.subcolor
+                }}
+            />
+        </>
+    );
+}
+
+export default ColorBox;
+```
+
+이 처럼 `useContext` 안에 ColorContext를 바로 집어 넣어 사용 할 수도 있습니다.
