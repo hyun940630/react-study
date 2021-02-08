@@ -1,4 +1,4 @@
-import { createAction, handleAction, handleActions } from 'redux-actions';
+import { createAction, handleActions } from 'redux-actions';
 
 const CHANGE_INPUT = 'todos/CHANGE_INPUT';
 const INSERT = 'todos/INSERT';
@@ -33,7 +33,7 @@ const initialState = {
   ],
 };
 
-const todos = handleAction(
+const todos = handleActions(
   {
     [CHANGE_INPUT]: (state, { payload: input }) => ({ ...state, input: input }),
     [INSERT]: (state, { payload: todo }) => ({
