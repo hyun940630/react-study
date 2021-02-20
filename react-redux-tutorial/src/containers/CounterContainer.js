@@ -1,17 +1,10 @@
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Counter from '../components/Counter';
-import { increase, decrease } from '../modules/counter';
 
-const CounterContainer = ({ number, increase, decrease }) => {
-  return <Counter number={number} onIncrese={increase} onDecrease={decrease} />;
+const CounterContainer = () => {
+  const number = useSelector((state) => state.counter.number);
+  console.log(number);
+  return <Counter number={number} />;
 };
 
-export default connect(
-  (state) => ({
-    number: state.counter.number,
-  }),
-  {
-    increase,
-    decrease,
-  },
-)(CounterContainer);
+export default CounterContainer;
