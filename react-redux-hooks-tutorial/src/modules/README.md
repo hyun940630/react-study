@@ -1,1 +1,2 @@
 -   Redux & Ducks pattern : 한 파일에 action type, action 생성함수, reducer를 구성함
+-   `index.js` : route reducer
