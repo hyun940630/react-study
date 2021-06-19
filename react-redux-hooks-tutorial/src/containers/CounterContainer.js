@@ -1,7 +1,6 @@
-import React from "react";
-import { useSelector, useActions } from "react-redux";
+import React, { useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Counter from "../components/Counter";
-import { increment, decrement } from "../modules/counter";
 
 const CounterContainer = () => {
     // NOTE: useSelector는 redux store 안의 값을 조회할 때 사용하는 hook
@@ -18,13 +17,26 @@ const CounterContainer = () => {
     //     onDecrease: decrement,
     // });
     // 3. const boundACsArray = useActions(actionCreators: Function[], deps: any[])     여러개의 action 생성함수를 사용하는데 배열형태로 사용
-    const [onIncease, onDecrease] = useActions([increment, decrement], []);
+    // const [onIncease, onDecrease] = useActions([increment, decrement], []);
+    // NOTE: useActions는 현재 제거됨. 사용 불가. 따라서 useDispatch()사용
+
+    const dispatch = useDispatch();
+
+    const incrementCounter = useCallback(
+        () => dispatch({ type: "INCREMENT" }),
+        [dispatch]
+    );
+
+    const decrementCounter = useCallback(
+        () => dispatch({ type: "DECREMENT" }),
+        [dispatch]
+    );
 
     return (
         <Counter
             number={counter}
-            onIncrease={onIncease}
-            onDecrease={onDecrease}
+            onIncrease={incrementCounter}
+            onDecrease={decrementCounter}
         />
     );
 };
